@@ -137,7 +137,7 @@ def feet_air_time(
   sensor_name: str,
   threshold: float = 0.4,
   command_name: str | None = None,
-  command_threshold: float = 0.1,
+  command_threshold: float = 0.3,
 ) -> torch.Tensor:
   """Reward feet air time."""
   sensor: ContactSensor = env.scene[sensor_name]
@@ -433,7 +433,7 @@ def stair_incline(
   target_angle_deg: float,
   tolerance_deg: float,
   command_name: str,
-  command_threshold: float = 0.1,
+  command_threshold: float = 0.3,
   asset_cfg: SceneEntityCfg = _DEFAULT_ASSET_CFG,
 ) -> torch.Tensor:
   """Penalize base pitch deviating beyond a tolerance band from a target.
@@ -468,7 +468,7 @@ def stair_incline(
 def forward_progress(
   env: ManagerBasedRlEnv,
   command_name: str,
-  command_threshold: float = 0.1,
+  command_threshold: float = 0.3,
   asset_cfg: SceneEntityCfg = _DEFAULT_ASSET_CFG,
 ) -> torch.Tensor:
   """Anti-stall penalty: penalize not reaching the commanded forward speed.
